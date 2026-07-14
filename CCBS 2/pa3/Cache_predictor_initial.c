@@ -1,9 +1,7 @@
 #include <stdio.h>
 
-/*
- * The simulator uses addresses from 0 through 4095 by default.
- * The default cache block size is 4 bytes.
- */
+// The default addresses are from 0 to 4095.
+// The default cache block size is 4 bytes.
 #define MAX_ADDRESS 4096
 #define BLOCK_SIZE 4
 
@@ -18,7 +16,7 @@ int main(int argc, char *argv[])
     long stride;
     long prediction;
 
-    /* The simulator must provide an input file and an output file. */
+    // Check that the user gives an input file and an output file.
     if (argc != 3) {
         fprintf(stderr, "Usage: %s input_file output_file\n", argv[0]);
         return 1;
@@ -30,10 +28,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    /*
-     * %li accepts both decimal addresses and hexadecimal addresses that
-     * begin with 0x. Only the final two addresses need to be remembered.
-     */
+    // Read decimal or hexadecimal addresses from the input file.
+    // Keep only the last two addresses.
     while (fscanf(input_file, "%li", &current_address) == 1) {
         previous_address = last_address;
         last_address = current_address;
@@ -53,11 +49,9 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    /*
-     * If at least two addresses exist, continue their most recent stride.
-     * Example: 16, 20 produces a stride of 4 and predicts 24.
-     * With only one address, move forward by one default cache block.
-     */
+    // Use the difference between the last two addresses.
+    // For example, 16 and 20 give a difference of 4 and predict 24.
+    // If there is only one address, move forward by one cache block.
     if (address_count >= 2) {
         stride = last_address - previous_address;
         prediction = last_address + stride;
@@ -65,7 +59,7 @@ int main(int argc, char *argv[])
         prediction = last_address + BLOCK_SIZE;
     }
 
-    /* Keep the prediction inside the default address range 0-4095. */
+    // Keep the prediction between 0 and 4095.
     prediction = prediction % MAX_ADDRESS;
     if (prediction < 0) {
         prediction = prediction + MAX_ADDRESS;
@@ -77,7 +71,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    /* The output file must contain addresses only, one address per line. */
+    // Write only one address to the output file.
     fprintf(output_file, "%ld\n", prediction);
 
     if (fclose(output_file) != 0) {
