@@ -1,5 +1,9 @@
 # Initial Cache Predictor 代码说明
 
+Group Number: 7
+
+Group Members: Zhitong Guo, Catherine Liu
+
 ## 1. 这个程序做什么
 
 模拟器会用下面的形式运行程序：

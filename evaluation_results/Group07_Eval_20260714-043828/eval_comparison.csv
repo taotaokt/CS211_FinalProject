@@ -1,0 +1,9 @@
+Metric,Initial,Final,Direction,Winner,Improved,Points,ExtraCredit
+Prediction Accuracy,0.11383759170250443,2.2198093859331642,higher,Final,True,5,No
+Coverage,0.09764389939294296,0.5858668199638118,higher,Final,True,5,No
+Prediction Score,0.11059885324059215,1.8930208727392939,higher,Final,True,2,Yes
+Predictor Runtime,39.97082999999989,40.30804099999976,lower,Initial,False,0,No
+Cache Hit Rate,12.076744696155306,12.078900124396863,higher,Final,True,2,Yes
+Estimated Memory,63248,397872,lower,Initial,False,0,No
+Estimated Energy,36573326.6,38348281.4,lower,Initial,False,0,No
+Overall Score,16.194795362225253,17.190226889190008,higher,Final,True,2,Yes

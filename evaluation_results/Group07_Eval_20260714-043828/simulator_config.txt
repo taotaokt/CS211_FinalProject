@@ -1,0 +1,24 @@
+CS211 Cache Benchmark Suite
+======================================================================
+Version: 3.4.3
+Build: 2026.07.08
+Group: Group07
+Mode: eval
+Run ID: Group07_Eval_20260714-043828
+Evaluation ID: EVAL-20260714-043828
+Benchmark Run: N/A
+Eval Seed: 9872315467902961761
+Time Minutes: 2.0
+Number of Addresses: 1024
+Practice Seed: N/A
+Cache Lines: 16
+Block Size: 4
+Maximum Address: 4096
+Predictor Timeout: 30.0
+Time Print Interval: 0.0
+Config File: pa3/config_simulator.ini
+Results Directory: pa3/results/eval/Group07_Eval_20260714-043828
+Machine Hostname: ilab3.cs.rutgers.edu
+Machine FQDN: ilab3.cs.rutgers.edu
+Machine Platform: Linux-6.17.0-35-generic-x86_64-with-glibc2.39
+iLab Verified: True

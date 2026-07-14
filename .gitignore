@@ -10,6 +10,11 @@ tmp/
 **/predictions*.txt
 **/build_log.txt
 **/loop_results.csv
+**/*_loop_results.csv
 **/eval_results.csv
 **/eval_summary.txt
 **/pa3.tar
+
+# Keep compact evaluation evidence in GitHub.
+!evaluation_results/**/eval_summary.txt
+!evaluation_results/**/build_log.txt

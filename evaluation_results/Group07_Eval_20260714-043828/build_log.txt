@@ -1,0 +1,13 @@
+======================================================================
+Build Log
+======================================================================
+Command: make
+
+STDOUT:
+gcc -Wall -Werror -O2 Cache_predictor.c -o Cache_predictor.out
+gcc -Wall -Werror -O2 Cache_predictor_initial.c -o Cache_predictor_initial.out
+
+STDERR:
+(none)
+
+Exit Code: 0

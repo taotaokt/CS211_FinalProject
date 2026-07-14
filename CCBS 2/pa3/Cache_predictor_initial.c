@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+// CS211 Final Project
+// Group Number: 7
+// Group Members: Zhitong Guo and Catherine Liu
+// Initial Cache Predictor
+
 // The default addresses are from 0 to 4095.
 // The default cache block size is 4 bytes.
 #define MAX_ADDRESS 4096

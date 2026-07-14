@@ -1,0 +1,69 @@
+===========================================================================
+CS211 Cache Benchmark Suite
+Evaluation Summary
+===========================================================================
+
+Group                : Group07
+Mode                 : Evaluation
+Run ID               : Group07_Eval_20260714-043828
+Evaluation ID        : EVAL-20260714-043828
+Evaluation Seed      : 9872315467902961761
+Evaluation Time      : 2.00 minutes per predictor
+
+===========================================================================
+EVALUATION SCORE
+===========================================================================
+Initial Predictor Compiled Successfully              PASS        +10
+Final Predictor Compiled Successfully                PASS        +10
+
+Improved Metrics......................................... 5 / 8
+
+Base Score................................................ 30 / 30
+Extra Credit............................................... +6 / +12
+Final Score................................................ 36 / 30
+
+===========================================================================
+METRIC COMPARISON
+===========================================================================
+Metric                          Initial          Final     Winner     Points
+---------------------------------------------------------------------------
+Prediction Accuracy              0.11 %         2.22 %      Final         +5
+Coverage                         0.10 %         0.59 %      Final         +5
+Prediction Score                   0.11           1.89      Final      +2 EC
+Predictor Runtime           39.970830 s    40.308041 s    Initial         +0
+Cache Hit Rate                  12.08 %        12.08 %      Final      +2 EC
+Estimated Memory                63248 B       397872 B    Initial         +0
+Estimated Energy            36573326.60    38348281.40    Initial         +0
+Overall Score                     16.19          17.19      Final      +2 EC
+
+===========================================================================
+TIMING COMPARISON
+===========================================================================
+Metric                                          Initial          Final
+---------------------------------------------------------------------------
+Build Wall Time                               0.202527s      0.202527s
+Total Predictor Runtime                      39.970830s     40.308041s
+Average Predictor Runtime / Loop                 5.055ms         4.862ms
+Simulation Runtime                            4.778173s      4.804053s
+Address Generation Runtime                   39.287082s     38.905900s
+
+Wall Clock Time
+---------------------------------------------------------------------------
+Initial Evaluation                          120.083416s
+Final Evaluation                            120.087357s
+Total Evaluation                            240.483006s
+
+===========================================================================
+GENERATED FILES
+===========================================================================
+eval_summary.txt
+eval_comparison.csv
+eval_timing.csv
+initial_loop_results.csv
+final_loop_results.csv
+build_log.txt
+upload_log.txt
+simulator_config.txt
+
+Results Folder: pa3/results/eval/Group07_Eval_20260714-043828
+===========================================================================

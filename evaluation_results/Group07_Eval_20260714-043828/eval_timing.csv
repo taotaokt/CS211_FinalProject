@@ -1,0 +1,9 @@
+Timing Metric,Initial,Final
+Build Wall Time,0.202527,0.202527
+Total Predictor Runtime,39.970830,40.308041
+Average Predictor Runtime Per Loop,0.005055,0.004862
+Simulation Runtime,4.778173,4.804053
+Address Generation Runtime,39.287082,38.905900
+Initial Profile Wall Time,120.083416,
+Final Profile Wall Time,,120.087357
+Total Eval Wall Time,240.483006,240.483006
