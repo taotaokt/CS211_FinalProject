@@ -1,2 +1,15 @@
 .DS_Store
 **/.DS_Store
+
+# Local PDF review files
+tmp/
+
+# Predictor build and simulator output files
+**/*.out
+**/cache_input*.txt
+**/predictions*.txt
+**/build_log.txt
+**/loop_results.csv
+**/eval_results.csv
+**/eval_summary.txt
+**/pa3.tar
