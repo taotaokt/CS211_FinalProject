@@ -386,8 +386,6 @@ int main(int argc, char **argv)
     size_t candidate_count = 0;
 
     char line[128];
-    size_t output_count;
-    size_t index;
 
     if (argc != 3)
     {
@@ -463,79 +461,81 @@ int main(int argc, char **argv)
         return EXIT_SUCCESS;
     }
 
-    detect_repeating_pattern(
-        addresses,
-        address_count,
-        candidates,
-        &candidate_count);
-
-    detect_stable_stride(
-        addresses,
-        address_count,
-        candidates,
-        &candidate_count);
-
-    detect_transitions(
-        addresses,
-        address_count,
-        candidates,
-        &candidate_count);
-
-    detect_recent_frequency(
-        addresses,
-        address_count,
-        candidates,
-        &candidate_count);
-
     /*
-     * Add the most recent addresses as low-confidence locality
-     * predictions.
+     * Generate one prediction per input address.
+     * For each position i in the history, predict what comes next
+     * based on the patterns up to position i.
      */
-    add_candidate(
-        candidates,
-        &candidate_count,
-        addresses[address_count - 1],
-        25);
-
-    if (address_count >= 2)
+    for (size_t i = 0; i < address_count; i++)
     {
-        add_candidate(
+        candidate_count = 0;
+
+        if (i > 0)
+        {
+            detect_repeating_pattern(
+                addresses,
+                i,
+                candidates,
+                &candidate_count);
+
+            detect_stable_stride(
+                addresses,
+                i,
+                candidates,
+                &candidate_count);
+
+            detect_transitions(
+                addresses,
+                i,
+                candidates,
+                &candidate_count);
+
+            detect_recent_frequency(
+                addresses,
+                i,
+                candidates,
+                &candidate_count);
+
+            add_candidate(
+                candidates,
+                &candidate_count,
+                addresses[i - 1],
+                25);
+
+            if (i >= 2)
+            {
+                add_candidate(
+                    candidates,
+                    &candidate_count,
+                    addresses[i - 2],
+                    20);
+            }
+        }
+        else
+        {
+            add_candidate(
+                candidates,
+                &candidate_count,
+                addresses[0] + 4,
+                10);
+        }
+
+        if (candidate_count == 0)
+        {
+            add_candidate(
+                candidates,
+                &candidate_count,
+                addresses[i] + 4,
+                10);
+        }
+
+        qsort(
             candidates,
-            &candidate_count,
-            addresses[address_count - 2],
-            20);
-    }
+            candidate_count,
+            sizeof(candidates[0]),
+            compare_candidates);
 
-    /*
-     * Ensure that at least one prediction exists.
-     */
-    if (candidate_count == 0)
-    {
-        add_candidate(
-            candidates,
-            &candidate_count,
-            addresses[address_count - 1] + 4,
-            10);
-    }
-
-    qsort(
-        candidates,
-        candidate_count,
-        sizeof(candidates[0]),
-        compare_candidates);
-
-    if (candidate_count < MAX_PREDICTIONS)
-    {
-        output_count = candidate_count;
-    }
-    else
-    {
-        output_count = MAX_PREDICTIONS;
-    }
-
-    for (index = 0; index < output_count; index++)
-    {
-        fprintf(output, "%llu\n", candidates[index].address);
+        fprintf(output, "%llu\n", candidates[0].address);
     }
 
     free(addresses);
